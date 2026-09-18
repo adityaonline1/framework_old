@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Swamy">
+    <meta name="theme-color" content="#0c8bf1" />
+    <meta name="keywords" content="">
+    <link href="vendor/images/baseline_local_activity_black_36dp.png" sizes="16X16" rel="shortcut icon" type="image/png" />
+
+    <title>STMS Dashboard</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="vendor/app/css/style.css" rel="stylesheet">
+
+    <!-- bootstrap-datetimepicker CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="vendor/jquery-mousewheel-scrollbar/css/jquery.mCustomScrollbar.min.css">
+
+
+</head>
+
+<body id="page-top">
+
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html">
+                <h2 class="m-0"><i class="baseline-local_activity icon-image-preview icon-white icon-36"></i> STMS</h2>
+            </a>
+        </div>
+        <ul class="side-menu accordion" id="accordionSidebar">
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.html"><i class="material-icons icon">widgets</i> Dashboard</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link collapse" href="#page-projects" data-toggle="collapse" aria-expanded="true"
+                    aria-controls="collapseTwo">
+                    <i class="material-icons icon">styles</i> Projects
+                </a>
+                <ul class="collapse sub-menu show" id="page-projects" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
+                    <li class="subnav-item">
+                        <a class="subnav-link" href="projects.html">View Project</a>
+                    </li>
+                    <li class="subnav-item active">
+                        <a class="subnav-link" href="add-project.html">Add Project</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#page-tickets" data-toggle="collapse" aria-expanded="false"
+                    aria-controls="collapseUtilities">
+                    <i class="material-icons icon">event_note</i> Tickets
+                </a>
+                <ul class="collapse sub-menu" id="page-tickets" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <li class="subnav-item">
+                        <a class="subnav-link" href="add-ticket.html">Add Tickets</a>
+                    </li>
+                    <li class="subnav-item">
+                        <a class="subnav-link" href="#">Assigned To Me</a>
+                    </li>
+                    <li class="subnav-item">
+                        <a class="subnav-link" href="#">Raised By Me</a>
+                    </li>
+                    <li class="subnav-item">
+                        <a class="subnav-link" href="#">Unsolved Tickets</a>
+                    </li>
+                    <li class="subnav-item">
+                        <a class="subnav-link" href="#">Solved Tickets</a>
+                    </li>
+                    <li class="subnav-item">
+                        <a class="subnav-link" href="view-tickets.html">View All Tickets</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="users.html"><i class="material-icons icon">people</i> Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#page-reports" data-toggle="collapse" aria-expanded="false"
+                    aria-controls="collapsePages">
+                    <i class="material-icons icon">assignment</i> Reports
+                </a>
+                <ul class="collapse sub-menu" id="page-reports" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <li class="subnav-item">
+                        <a class="subnav-link" href="project-reports.html">Project Level Reports</a>
+                    </li>
+                    <li class="subnav-item">
+                        <a class="subnav-link" href="user-reports.html">User Level Reports</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="menu-overlay"></div>
+
+    <main class="main-wrapper">
+        <header class="header-area">
+            <nav class="navbar navbar-expand navbar-light bg-admin">
+                <div class="container">
+                    <button class="btn btn-light btn-circle text-theme order-1 order-sm-0" id="sidebarCollapse">
+                        <i class="material-icons text-theme md-18">more_vert</i>
+                    </button>
+                    <!-- Navbar Search -->
+                    <form class="form-inline mr-auto mr-0 ml-md-3">
+                        <div class="has-search">
+                            <span class="material-icons md-24 form-control-feedback">search</span>
+                            <input type="text" class="form-control" placeholder="Search...">
+                        </div>
+                    </form>
+
+                    <!-- Navbar -->
+                    <ul class="navbar-nav ml-auto ml-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link invite text-theme" href="add-ticket.html">
+                                <span class="pt-2 d-none d-lg-inline-block"><i class="material-icons md-14">add</i> Add
+                                    Ticket</span>
+                                <span
+                                    class="mt-1 d-xl-none d-lg-none text-theme btn btn-light btn-circle material-icons md-18">add</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">notifications</i>
+                                <span class="badge badge-danger">9+</span>
+                            </a>
+                            <div class="dropdown-menu notification dropdown-menu-right"
+                                aria-labelledby="alertsDropdown">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Your Notifications</div>
+                                    </li>
+                                    <li>
+                                        <div class="notification-center">
+                                            <a href="#">
+                                                <div class="btn btn-danger btn-circle shadow"><i
+                                                        class="material-icons">notifications_none</i></div>
+                                                <div class="notification-contnet">
+                                                    <h5>Luanch Admin</h5> <span class="mail-desc">Just see the my new
+                                                        admin!</span> <span class="time">9:30 AM</span>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="btn btn-success btn-circle"><i
+                                                        class="material-icons">notifications_none</i></div>
+                                                <div class="notification-contnet">
+                                                    <h5>Event today</h5> <span class="mail-desc">Just a reminder that
+                                                        you have event</span> <span class="time">9:10 AM</span>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="btn btn-info btn-circle"><i
+                                                        class="material-icons">notifications_none</i></div>
+                                                <div class="notification-contnet">
+                                                    <h5>Settings</h5> <span class="mail-desc">You can customize this
+                                                        template as you want</span> <span class="time">9:08 AM</span>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="btn btn-primary btn-circle"><i
+                                                        class="material-icons">notifications_none</i></div>
+                                                <div class="notification-contnet">
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my
+                                                        admin!</span>
+                                                    <span class="time">9:02 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="pt-2 nav-link text-center" href="javascript:void(0);"> All
+                                            notifications</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle pt-1" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="vendor/images/user-profile.png" width="35" alt="profile-user"
+                                    class="rounded-circle">
+                                <div class="d-none d-xl-inline-block">Rajan</div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right logout" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#"><i class="material-icons">settings</i> Settings</a>
+                                <a class="dropdown-item" href="#"><i class="material-icons">style</i> Activity Log</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i
+                                        class="material-icons">exit_to_app</i>
+                                    Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="content-wrapper">
+            <!-- Breadcrumbs-->
+            <section class="breadcrumbs-area2 my-3">
+                <div class="container">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="title">
+                            <h1 class="text-uppercase">Add Project <small>Lets you a create project</small></h1>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </section>
+            <!-- End Breadcrumbs-->
+
+            <!-- Content Area-->
+            <section class="content-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card border-0 shadow mb-4">
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Add Project</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">Name</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">Description</label>
+                                                    <div class="col-sm-8">
+                                                        <textarea type="text" rows="4" class="form-control"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">Short
+                                                        Name</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">Duration(In
+                                                        days)</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">Project
+                                                        Manager</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="custom-select">
+                                                            <option>Project-1</option>
+                                                            <option>Project-2</option>
+                                                            <option>Project-3</option>
+                                                            <option>Project-4</option>
+                                                            <option>Project-5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">Client</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="custom-select">
+                                                            <option>Client-1</option>
+                                                            <option>Client-2</option>
+                                                            <option>Client-3</option>
+                                                            <option>Client-4</option>
+                                                            <option>Client-5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">SignUp Date</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control datepicker1">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">Start Date</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control datepicker2">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">SignOff Date</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control datepicker3">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">User List</label>
+                                                    <div class="col-sm-8">
+                                                        <div class="list-wrapper multi-select">
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            <input class="checkbox" type="checkbox">
+                                                                            Swamy
+                                                                            <i class="input-helper"></i>
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            <input class="checkbox" type="checkbox">
+                                                                            Naashi
+                                                                            <i class="input-helper"></i>
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            <input class="checkbox" type="checkbox">
+                                                                            Anil Kumar
+                                                                            <i class="input-helper"></i>
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            <input class="checkbox" type="checkbox">
+                                                                            Bharatwaj
+                                                                            <i class="input-helper"></i>
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            <input class="checkbox" type="checkbox">
+                                                                            Sireesha
+                                                                            <i class="input-helper"></i>
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            <input class="checkbox" type="checkbox">
+                                                                            Sridevi
+                                                                            <i class="input-helper"></i>
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            <input class="checkbox" type="checkbox">
+                                                                            Sankeerth
+                                                                            <i class="input-helper"></i>
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            <input class="checkbox" type="checkbox">
+                                                                            Bala Krishna
+                                                                            <i class="input-helper"></i>
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="offset-sm-4 col-sm-8">
+                                                        <button class="btn btn-md btn-primary" type="button">
+                                                            Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Cards-->
+
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="material-icons">navigation</i>
+            </a>
+        </div>
+        <footer class="footer border-top py-3 text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copy-rights">
+                            <span class="text-dark">&copy; 2019 <a href="#" target="_blank">Admin</a> All rights
+                                reserved.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- bootstrap-datetimepicker JS -->
+    <script src="vendor/bootstrap-datetimepicker/js/moment.min.js"></script>
+    <script src="vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="vendor/app/js/admin.js"></script>
+
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="vendor/jquery-mousewheel-scrollbar/js/jquery.mCustomScrollbar.min.js"></script>
+    <script>
+        $(function () {
+            $('.datepicker1,.datepicker2,.datepicker3').datetimepicker({
+                // format: 'DD-MM-YYYY HH:mm:ss'
+                // format: 'DD-MM-YYYY'
+                // format: 'DD-MMMM'
+            });
+        });
+    </script>
+
+</body>
+
+</html>
