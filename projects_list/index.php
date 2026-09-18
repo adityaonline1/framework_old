@@ -1,1 +1,1 @@
-<?="new branch checking"?>
+<?="new branch checking new pull request added in the featur branch"?>
